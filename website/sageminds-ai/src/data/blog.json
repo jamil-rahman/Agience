@@ -1,0 +1,25 @@
+{
+  "articles": [
+    {
+      "image": "/blog/ai-future.jpg",
+      "title": "The Future of AI: Transforming Business Operations",
+      "excerpt": "Artificial Intelligence is revolutionizing how businesses operate. From automated customer service to predictive analytics, AI is becoming an integral part of modern business strategy...",
+      "date": "February 15, 2025",
+      "link": "https://medium.com/your-blog/article-1"
+    },
+    {
+      "image": "/blog/machine-learning.jpg",
+      "title": "Machine Learning: A Practical Guide for Businesses",
+      "excerpt": "Understanding machine learning doesn't have to be complicated. In this guide, we break down the essential concepts that business leaders need to know...",
+      "date": "January 10, 2025",
+      "link": "https://medium.com/your-blog/article-2"
+    },
+    {
+      "image": "/blog/data-analytics.jpg",
+      "title": "Leveraging Data Analytics for Better Decision Making",
+      "excerpt": "Data is the new oil, but how do you refine it into actionable insights? Learn how modern analytics tools are helping businesses make smarter decisions...",
+      "date": "December 5, 2024",
+      "link": "https://medium.com/your-blog/article-3"
+    }
+  ]
+} 

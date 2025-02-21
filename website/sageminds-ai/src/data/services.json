@@ -1,0 +1,44 @@
+{
+  "services": [
+    {
+      "icon": "lightning",
+      "title": "Limitless Scalability & Flexibility",
+      "description": "Scale your operations infinitely with our cloud-native AI solutions and flexible architecture",
+      "features": ["Auto-scaling", "Load balancing", "Global deployment"],
+      "metric": {
+        "value": "∞",
+        "label": "Scalability"
+      }
+    },
+    {
+      "icon": "bulb",
+      "title": "Smart Process Automation",
+      "description": "Our AI systems automate complex workflows with 90% accuracy, learning and adapting to your business needs in real-time",
+      "features": ["Self-learning systems", "Real-time adaptation", "24/7 operation"],
+      "metric": {
+        "value": "90%",
+        "label": "Automation Accuracy"
+      }
+    },
+    {
+      "icon": "chart",
+      "title": "Improved ROI-Driven Solutions",
+      "description": "Achieve up to 60% cost reduction through intelligent process optimization and resource allocation",
+      "features": ["Resource optimization", "Predictive analytics", "Cost forecasting"],
+      "metric": {
+        "value": "60%",
+        "label": "Cost Reduction"
+      }
+    },
+    {
+      "icon": "cube",
+      "title": "Advanced Analytics & Insights",
+      "description": "Get deep insights into your business operations with our advanced analytics and reporting tools",
+      "features": ["Real-time monitoring", "Custom reporting", "Trend analysis"],
+      "metric": {
+        "value": "100%",
+        "label": "Data Accuracy"
+      }
+    }
+  ]
+} 
