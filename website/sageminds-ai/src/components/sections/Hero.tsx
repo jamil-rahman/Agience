@@ -29,7 +29,7 @@ const Hero = () => {
   return (
     <section 
       id="home" 
-      className="relative h-screen snap-start snap-always bg-fixed bg-center bg-no-repeat bg-cover flex flex-col"
+      className="relative min-h-screen md:snap-start md:snap-always bg-fixed bg-center bg-no-repeat bg-cover flex flex-col"
       style={{ backgroundImage: 'url(/hero-transparent.png)' }}
     >
 

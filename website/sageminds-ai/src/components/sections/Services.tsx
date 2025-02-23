@@ -4,7 +4,10 @@ import { icons } from '../../utils/icons'
 
 const Services = () => {
   return (
-    <section id="services" className="h-screen snap-start snap-always bg-gray-50 dark:bg-dark-800">
+    <section 
+      id="services" 
+      className="min-h-screen md:snap-start md:snap-always bg-gray-50 dark:bg-dark-800 pt-16 md:pt-0"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         {/* Section Header - reduced bottom margin from mb-16 to mb-10 */}
         <div className="text-center mb-10">

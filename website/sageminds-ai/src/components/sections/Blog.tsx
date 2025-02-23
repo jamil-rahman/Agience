@@ -3,7 +3,10 @@ import blogData from '../../data/blog.json'
 
 const Blog = () => {
   return (
-    <section id="blog" className="h-screen snap-start snap-always bg-gray-50 dark:bg-dark-800">
+    <section 
+      id="blog" 
+      className="min-h-screen md:snap-start md:snap-always bg-gray-50 dark:bg-dark-800 pt-16 md:pt-0"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         {/* Section Header */}
         <div className="text-center mb-12">
