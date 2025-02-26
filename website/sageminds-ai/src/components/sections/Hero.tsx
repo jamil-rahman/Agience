@@ -27,23 +27,22 @@ const companyLogos = [
 
 const Hero = () => {
   return (
-    <section 
-      id="home" 
-      className="relative min-h-screen md:snap-start md:snap-always bg-fixed bg-center bg-no-repeat bg-cover flex flex-col"
+    <section
+      id="home"
+      className="relative w-full min-h-screen pt-16 bg-white dark:bg-dark-900 bg-fixed bg-center bg-no-repeat bg-cover flex flex-col"
       style={{ backgroundImage: 'url(/hero-transparent.png)' }}
     >
 
       {/* Content */}
       <div className="relative z-10 flex flex-col flex-1">
         {/* Hero Content */}
-        <div className="flex flex-col justify-center flex-1 pt-20 md:pt-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="w-full md:w-[80%] lg:w-[40%] md:pt-0">
+        <div className="flex flex-col justify-center flex-1 pt-20 md:pt-32 max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="w-full md:w-[80%] lg:w-[40%] md:pt-0 px-4">
             <h1 className="font-dm-sans text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-              Empowering the Future With AI
+              Enabling Agentic Workforce Era
             </h1>
             <p className="font-inter text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor 
-              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+              We empower businesses with AI-driven strategies, intelligent automation, and data insights to accelerate Agentic AI transformation and unlock new growth opportunities.
             </p>
             <button className="font-inter px-8 py-4 bg-purple-800 hover:bg-purple-900 text-white rounded-lg 
                              transition-colors duration-200 text-lg font-semibold">
@@ -59,13 +58,13 @@ const Hero = () => {
               <div className="relative overflow-hidden">
                 <div className="flex items-center space-x-12 animate-carousel-fast">
                   {companyLogos.map((logo, index) => (
-                    <div 
-                      key={index} 
+                    <div
+                      key={index}
                       className="flex-shrink-0"
                     >
-                      <img 
-                        src={logo} 
-                        alt={`Company logo ${index + 1}`} 
+                      <img
+                        src={logo}
+                        alt={`Company logo ${index + 1}`}
                         className="h-12 md:h-16 w-24 object-contain"
                       />
                     </div>

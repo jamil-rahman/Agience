@@ -5,12 +5,12 @@ const Blog = () => {
   return (
     <section 
       id="blog" 
-      className="min-h-screen md:snap-start md:snap-always bg-gray-50 dark:bg-dark-800 pt-16 md:pt-0"
+      className="w-full py-24 bg-gray-50 dark:bg-dark-800"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <div className="font-dm-sans text-sm font-medium text-purple-600 dark:text-purple-400 uppercase tracking-wider mb-3">
+          <div className="font-dm-sans text-sm font-medium text-blue-600 dark:text-blue-400 uppercase tracking-wider mb-3">
             Our Blog
           </div>
           <h2 className="font-dm-sans text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">

@@ -1,102 +1,109 @@
-import { Link } from 'react-router-dom'
-
-const Services = () => {
+const Industries = () => {
   return (
     <section 
-      id="services" 
+      id="industries" 
       className="w-full py-24 bg-gray-50 dark:bg-dark-800"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="font-dm-sans text-sm font-medium text-blue-600 dark:text-blue-400 uppercase tracking-wider mb-3">
-            Our Services
+            Our Industries
           </div>
-          <h2 className="font-inter text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Comprehensive AI Solutions for Enterprise Success
+          <h2 className="font-dm-sans text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            AI Solutions Tailored for Your Industry
           </h2>
         </div>
 
         {/* Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* AI Strategy Card */}
+          {/* Finance Card */}
           <div className="bg-white dark:bg-dark-700 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl
               transform hover:-translate-y-2">
             <div className="group">
-              <div className="w-16 h-16 mb-6 rounded-xl bg-purple-100 dark:bg-purple-900/20 
+              <div className="w-16 h-16 mb-6 rounded-xl bg-blue-100 dark:bg-blue-900/20 
                   flex items-center justify-center transition-transform duration-300 
                   group-hover:scale-110">
                 <svg 
-                  className="w-8 h-8 text-purple-600 transition-transform duration-300 group-hover:rotate-12" 
+                  className="w-8 h-8 text-blue-600 transition-transform duration-300 group-hover:rotate-12" 
                   fill="none" 
                   stroke="currentColor" 
                   viewBox="0 0 24 24"
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
-                    d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
               <h3 className="font-dm-sans text-xl font-bold text-gray-900 dark:text-white mb-4">
-                AI Strategy & Roadmap
+                Finance & FinTech
               </h3>
+              <p className="font-inter text-gray-600 dark:text-gray-300">
+                AI Agents for risk analysis, fraud detection, and automated trading
+              </p>
             </div>
           </div>
 
-          {/* Custom AI Solutions Card */}
+          {/* Retail Card */}
           <div className="bg-white dark:bg-dark-700 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl
               transform hover:-translate-y-2">
             <div className="group">
-              <div className="w-16 h-16 mb-6 rounded-xl bg-purple-100 dark:bg-purple-900/20 
+              <div className="w-16 h-16 mb-6 rounded-xl bg-blue-100 dark:bg-blue-900/20 
                   flex items-center justify-center transition-transform duration-300 
                   group-hover:scale-110">
                 <svg 
-                  className="w-8 h-8 text-purple-600 transition-transform duration-300 group-hover:rotate-12" 
+                  className="w-8 h-8 text-blue-600 transition-transform duration-300 group-hover:rotate-12" 
                   fill="none" 
                   stroke="currentColor" 
                   viewBox="0 0 24 24"
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
-                    d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                    d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                 </svg>
               </div>
               <h3 className="font-dm-sans text-xl font-bold text-gray-900 dark:text-white mb-4">
-                Custom AI Solutions
+                Retail & E-Commerce
               </h3>
+              <p className="font-inter text-gray-600 dark:text-gray-300">
+                AI-Agents demand forecasting, and personalized shopping
+              </p>
             </div>
           </div>
 
-          {/* Data-Driven Insights Card */}
+          {/* Manufacturing Card */}
           <div className="bg-white dark:bg-dark-700 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl
               transform hover:-translate-y-2">
             <div className="group">
-              <div className="w-16 h-16 mb-6 rounded-xl bg-purple-100 dark:bg-purple-900/20 
+              <div className="w-16 h-16 mb-6 rounded-xl bg-blue-100 dark:bg-blue-900/20 
                   flex items-center justify-center transition-transform duration-300 
                   group-hover:scale-110">
                 <svg 
-                  className="w-8 h-8 text-purple-600 transition-transform duration-300 group-hover:rotate-12" 
+                  className="w-8 h-8 text-blue-600 transition-transform duration-300 group-hover:rotate-12" 
                   fill="none" 
                   stroke="currentColor" 
                   viewBox="0 0 24 24"
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
-                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                 </svg>
               </div>
               <h3 className="font-dm-sans text-xl font-bold text-gray-900 dark:text-white mb-4">
-                Data-Driven Insights
+                Manufacturing & Industry 4.0
               </h3>
+              <p className="font-inter text-gray-600 dark:text-gray-300">
+                AI solutions for predictive maintenance, process automation, and supply chain optimization
+              </p>
             </div>
           </div>
 
-          {/* Enterprise AI Integration Card */}
+          {/* SaaS Card */}
           <div className="bg-white dark:bg-dark-700 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl
               transform hover:-translate-y-2">
             <div className="group">
-              <div className="w-16 h-16 mb-6 rounded-xl bg-purple-100 dark:bg-purple-900/20 
+              <div className="w-16 h-16 mb-6 rounded-xl bg-blue-100 dark:bg-blue-900/20 
                   flex items-center justify-center transition-transform duration-300 
                   group-hover:scale-110">
                 <svg 
-                  className="w-8 h-8 text-purple-600 transition-transform duration-300 group-hover:rotate-12" 
+                  className="w-8 h-8 text-blue-600 transition-transform duration-300 group-hover:rotate-12" 
                   fill="none" 
                   stroke="currentColor" 
                   viewBox="0 0 24 24"
@@ -106,25 +113,17 @@ const Services = () => {
                 </svg>
               </div>
               <h3 className="font-dm-sans text-xl font-bold text-gray-900 dark:text-white mb-4">
-                Enterprise AI Integration
+                SaaS & Enterprise Tech
               </h3>
+              <p className="font-inter text-gray-600 dark:text-gray-300">
+                AI-driven SaaS automation, cloud AI integration, and customer analytics
+              </p>
             </div>
           </div>
-        </div>
-
-        {/* CTA Button */}
-        <div className="text-center mt-16">
-          <Link 
-            to="/expertise"
-            className="inline-block font-inter px-8 py-4 bg-purple-800 hover:bg-purple-900 
-                     text-white rounded-lg transition-colors duration-200 text-lg font-semibold"
-          >
-            Explore Our Expertise
-          </Link>
         </div>
       </div>
     </section>
   )
 }
 
-export default Services 
+export default Industries 

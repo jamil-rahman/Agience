@@ -7,21 +7,25 @@ import Testimonials from '../components/sections/Testimonials'
 import FAQ from '../components/sections/FAQ'
 import Blog from '../components/sections/Blog'
 import Footer from '../components/sections/Footer'
+import UseCases from '../components/sections/UseCases'
+import Industries from '../components/sections/Industries'
 
 const Home = () => {
   return (
-    <>
+    <div className="flex flex-col">
       <Hero />
       <About />
-      <Services />
-      <Blog />
+      <UseCases />
+      <Industries />
+      <WhyUs />
+      {/* <Blog /> */}
+      <FAQ />
       {/* <Portfolio /> */}
       {/* <WhyUs /> */}
       {/* <Testimonials /> */}
       {/* <FAQ /> */}
-      
-      <Footer />
-    </>
+    
+    </div>
   )
 }
 

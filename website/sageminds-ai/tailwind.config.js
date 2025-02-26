@@ -17,6 +17,7 @@ export default {
           900: '#0B1120', // Main background (darkest)
           800: '#111827', // Slightly lighter for sections
           700: '#1F2937', // Even lighter for cards/elements
+          950: '#000000', // Darkest background
         }
       },
       animation: {

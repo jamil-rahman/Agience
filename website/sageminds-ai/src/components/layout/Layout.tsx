@@ -9,7 +9,7 @@ const Layout = ({ children }: LayoutProps) => {
     <div className="min-h-screen bg-white dark:bg-dark-800 transition-colors duration-200">
       <Navbar />
       <main 
-        className="text-gray-900 dark:text-white h-screen overflow-y-scroll scroll-smooth md:snap-y md:snap-mandatory"
+        className="text-gray-900 dark:text-white overflow-y-auto scroll-smooth"
         style={{
           scrollbarWidth: 'none',  // Hide scrollbar for Firefox
           msOverflowStyle: 'none',  // Hide scrollbar for IE/Edge
