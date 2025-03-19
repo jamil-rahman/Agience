@@ -55,12 +55,13 @@ const AgentForm: React.FC<AgentFormProps> = ({
           {/* Name Field */}
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-              Name
+              Name <span className='text-red-600'>*</span>
             </label>
             <input
               type="text"
               id="name"
               name="name"
+              required
               value={formData.name}
               onChange={onChange}
               className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"

@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { TopNav } from '../common/TopNav';
-import { SideNav } from '../common/SideNav';
+import { TopNav } from './TopNav';
+import { SideNav } from './SideNav';
 
 interface LayoutProps {
   children: React.ReactNode;

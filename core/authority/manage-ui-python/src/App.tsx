@@ -25,7 +25,7 @@ function App() {
                 <Layout>
                   <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/agent" element={<Agent />} />
+                    <Route path="/agents" element={<Agent />} />
                     <Route path="/topics" element={<Topic />} />
                     <Route path="/hosts" element={<Hosts />} />
                     <Route path="/plugins" element={<Plugins />} />

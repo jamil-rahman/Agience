@@ -1,7 +1,8 @@
 import { useTheme } from '../../hooks/useTheme';
-import { UserProfile } from './UserProfile';
+import { UserProfile } from '../common/UserProfile';
 import { useAuth } from '../../auth/AuthContext';
 import { getInitials } from '../../utils/initials';
+import { useNavigate } from 'react-router-dom';
 
 interface TopNavProps {
   onToggleSidebar: () => void;
@@ -14,6 +15,7 @@ export const TopNav: React.FC<TopNavProps> = ({ onToggleSidebar }) => {
   const { user } = useAuth();
   const fullName = user?.profile?.name || 'User';
   const initials = getInitials(fullName);
+  const navigate = useNavigate(); 
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-gray-50 dark:bg-gray-800 shadow z-10">
@@ -37,8 +39,7 @@ export const TopNav: React.FC<TopNavProps> = ({ onToggleSidebar }) => {
           </svg>
         </button>
 
-        {/* Logo and Company Name */}
-        <div className="flex items-center space-x-3 ml-4">
+        <div className="flex items-center space-x-3 ml-4 hover:cursor-pointer" onClick={() => navigate('/')}>
           <img src="/logo.png" alt="Agience Logo" className="h-8 w-8" />
           <h1 className="text-xl font-bold text-gray-900 dark:text-white hidden sm:block">Agience</h1>
         </div>

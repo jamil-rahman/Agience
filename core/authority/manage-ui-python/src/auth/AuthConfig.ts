@@ -1,15 +1,15 @@
 import { env } from '../config/env';
 
-// Debugging for OAuth configuration and redirect URI
-console.log('Redirect URI:', env.OIDC_REDIRECT_URI);
+// // Debugging for OAuth configuration and redirect URI
+// console.log('Redirect URI:', env.OIDC_REDIRECT_URI);
 
-// Add comprehensive debugging
-console.log('OAuth Configuration:', {
-  authority: env.OIDC_AUTHORITY,
-  client_id: env.OIDC_CLIENT_ID,
-  redirect_uri: env.OIDC_REDIRECT_URI,
-  authorization_endpoint: env.OIDC_AUTHORIZATION_ENDPOINT
-});
+// // Add comprehensive debugging
+// console.log('OAuth Configuration:', {
+//   authority: env.OIDC_AUTHORITY,
+//   client_id: env.OIDC_CLIENT_ID,
+//   redirect_uri: env.OIDC_REDIRECT_URI,
+//   authorization_endpoint: env.OIDC_AUTHORIZATION_ENDPOINT
+// });
 
 export const AuthConfig = {
   authority: env.OIDC_AUTHORITY,

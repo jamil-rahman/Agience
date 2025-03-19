@@ -20,7 +20,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         const currentUser = await userManager.getUser();
         setUser(currentUser);
       } catch (error) {
-        console.error('Error getting user:', error);
+        // console.error('Error getting user:', error);
       } finally {
         setIsLoading(false);
       }
@@ -53,7 +53,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     try {
       await userManager.signinRedirect();
     } catch (error) {
-      console.error('Login error:', error);
+      // console.error('Login error:', error);
     }
   };
 
@@ -66,7 +66,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       await userManager.removeUser();
       window.location.href = '/login';
     } catch (error) {
-      console.error('Logout error:', error);
+      // console.error('Logout error:', error);
       await userManager.removeUser();
       window.location.href = '/login';
     }

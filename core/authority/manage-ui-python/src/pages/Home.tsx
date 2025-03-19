@@ -24,14 +24,13 @@ export default function Home() {
 
         {/* CTA Button */}
         <div className="mt-8">
-          <Link to="/agent">
+          <Link to="/hosts">
             <Button 
               variant="primary"
               className="text-lg px-8 py-3 font-semibold"
             >
               Get Started
             </Button>
-            {/* <button className="text-lg px-8 py-3 font-semibold">Get Started</button> */}
           </Link>
         </div>
       </div>

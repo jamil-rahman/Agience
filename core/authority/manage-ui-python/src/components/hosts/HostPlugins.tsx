@@ -5,9 +5,9 @@ import { Host } from '../../types/Host';
 import { hostPluginService } from '../../services/api/hostPluginService';
 import { hostService } from '../../services/api/hostService';
 import { pluginService } from '../../services/api/pluginService';
-import NotificationModal from '../common/NotificationModal';
 import ConfirmationModal from '../common/ConfirmationModal';
 import Button from '../common/Button';
+import Toast from '../common/Toast';
 
 interface HostPluginsProps {
   hostId?: string;
@@ -22,9 +22,8 @@ const HostPlugins = ({ hostId: propHostId }: HostPluginsProps) => {
   const [assignedPlugins, setAssignedPlugins] = useState<Plugin[]>([]);
   const [availablePlugins, setAvailablePlugins] = useState<Plugin[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [notification, setNotification] = useState<{ isOpen: boolean; title: string; message: string; type: 'success' | 'error' | 'info' | 'warning' }>({
-    isOpen: false,
-    title: '',
+  const [toast, setToast] = useState<{ isVisible: boolean; message: string; type: 'success' | 'error' | 'info' | 'warning' }>({
+    isVisible: false,
     message: '',
     type: 'info'
   });
@@ -42,7 +41,7 @@ const HostPlugins = ({ hostId: propHostId }: HostPluginsProps) => {
       setHost(hostData);
     } catch (error) {
       console.error('Error fetching host details:', error);
-      showNotification('Error', 'Failed to load host details', 'error');
+      showToast('Failed to load host details', 'error');
     }
   }, [hostId]);
 
@@ -54,7 +53,7 @@ const HostPlugins = ({ hostId: propHostId }: HostPluginsProps) => {
       setAssignedPlugins(plugins);
     } catch (error) {
       console.error('Error fetching assigned plugins:', error);
-      showNotification('Error', 'Failed to load assigned plugins', 'error');
+      showToast('Failed to load assigned plugins', 'error');
     }
   }, [hostId]);
 
@@ -65,7 +64,7 @@ const HostPlugins = ({ hostId: propHostId }: HostPluginsProps) => {
       setAvailablePlugins(plugins);
     } catch (error) {
       console.error('Error fetching available plugins:', error);
-      showNotification('Error', 'Failed to load available plugins', 'error');
+      showToast('Failed to load available plugins', 'error');
     }
   }, []);
 
@@ -97,12 +96,12 @@ const HostPlugins = ({ hostId: propHostId }: HostPluginsProps) => {
     };
   }, [hostId, fetchHostDetails, fetchAssignedPlugins, fetchAvailablePlugins]);
 
-  const showNotification = (title: string, message: string, type: 'success' | 'error' | 'info' | 'warning') => {
-    setNotification({ isOpen: true, title, message, type });
+  const showToast = (message: string, type: 'success' | 'error' | 'info' | 'warning') => {
+    setToast({ isVisible: true, message, type });
   };
 
-  const closeNotification = () => {
-    setNotification(prev => ({ ...prev, isOpen: false }));
+  const closeToast = () => {
+    setToast(prev => ({ ...prev, isVisible: false }));
   };
 
   const showRemoveConfirmation = (pluginId: string, pluginName: string) => {
@@ -120,10 +119,10 @@ const HostPlugins = ({ hostId: propHostId }: HostPluginsProps) => {
       await hostPluginService.addPluginToHost(hostId, pluginId);
       await fetchAssignedPlugins();
       const plugin = availablePlugins.find(p => p.id === pluginId);
-      showNotification('Success', `Plugin "${plugin?.name}" added successfully`, 'success');
+      showToast(`Plugin "${plugin?.name}" added successfully`, 'success');
     } catch (error) {
       console.error('Error adding plugin:', error);
-      showNotification('Error', 'Failed to add plugin', 'error');
+      showToast('Failed to add plugin', 'error');
     } finally {
       setIsLoading(false);
     }
@@ -135,10 +134,10 @@ const HostPlugins = ({ hostId: propHostId }: HostPluginsProps) => {
     try {
       await hostPluginService.removePluginFromHost(hostId, confirmation.pluginId);
       await fetchAssignedPlugins();
-      showNotification('Success', `Plugin "${confirmation.pluginName}" removed successfully`, 'success');
+      showToast(`Plugin "${confirmation.pluginName}" removed successfully`, 'success');
     } catch (error) {
       console.error('Error removing plugin:', error);
-      showNotification('Error', 'Failed to remove plugin', 'error');
+      showToast('Failed to remove plugin', 'error');
     } finally {
       setIsLoading(false);
       closeConfirmation();
@@ -244,14 +243,14 @@ const HostPlugins = ({ hostId: propHostId }: HostPluginsProps) => {
         </div>
       )}
 
-      {/* Notification Modal */}
-      <NotificationModal
-        isOpen={notification.isOpen}
-        onClose={closeNotification}
-        title={notification.title}
-        message={notification.message}
-        type={notification.type}
-      />
+      {/* Toast Notification */}
+      {toast.isVisible && (
+        <Toast
+          message={toast.message}
+          type={toast.type}
+          onClose={closeToast}
+        />
+      )}
 
       {/* Confirmation Modal */}
       <ConfirmationModal

@@ -6,7 +6,7 @@ import { Agent, AgentFormData } from '../../types/Agent';
 import { Host } from '../../types/Host';
 import AgentList from './AgentList';
 import AgentForm from './AgentForm';
-import NotificationModal from '../common/NotificationModal';
+import Toast from '../common/Toast';
 import ConfirmationModal from '../common/ConfirmationModal';
 
 /**
@@ -28,17 +28,15 @@ function AgentDetailsTab() {
     is_enabled: false
   });
 
-  // Modal states
-  const [notification, setNotification] = useState<{
-    isOpen: boolean;
-    title: string;
+  // Toast state
+  const [toast, setToast] = useState<{
     message: string;
     type: 'success' | 'error' | 'info' | 'warning';
+    isVisible: boolean;
   }>({
-    isOpen: false,
-    title: '',
     message: '',
-    type: 'info'
+    type: 'info',
+    isVisible: false
   });
 
   const [confirmation, setConfirmation] = useState<{
@@ -127,7 +125,7 @@ function AgentDetailsTab() {
         }
       } catch (error) {
         console.error('Error fetching initial data:', error);
-        showNotification('Error', 'Failed to load data', 'error');
+        showToast('Failed to load data', 'error');
       } finally {
         setIsLoading(false);
       }
@@ -143,6 +141,21 @@ function AgentDetailsTab() {
     // Clear temp agent if exists
     if (tempAgentId) {
       setTempAgentId(null);
+    }
+    
+    // Handle cancellation
+    if (!id) {
+      setSelectedAgent(null);
+      setFormData({
+        name: '',
+        description: '',
+        persona: null,
+        hostId: null,
+        executiveFunctionId: null,
+        is_enabled: false
+      });
+      setSearchParams({});
+      return;
     }
     
     fetchAgentDetails(id);
@@ -225,22 +238,21 @@ function AgentDetailsTab() {
   };
 
   /**
-   * Shows a notification modal
+   * Shows a toast notification
    */
-  const showNotification = (title: string, message: string, type: 'success' | 'error' | 'info' | 'warning') => {
-    setNotification({
-      isOpen: true,
-      title,
+  const showToast = (message: string, type: 'success' | 'error' | 'info' | 'warning') => {
+    setToast({
       message,
-      type
+      type,
+      isVisible: true
     });
   };
 
   /**
-   * Closes the notification modal
+   * Closes the toast notification
    */
-  const closeNotification = () => {
-    setNotification(prev => ({ ...prev, isOpen: false }));
+  const closeToast = () => {
+    setToast(prev => ({ ...prev, isVisible: false }));
   };
 
   /**
@@ -271,7 +283,7 @@ function AgentDetailsTab() {
       
       // Validate form data
       if (!formData.name.trim()) {
-        showNotification('Error', 'Agent name is required', 'error');
+        showToast('Agent name is required', 'error');
         return;
       }
       
@@ -280,11 +292,11 @@ function AgentDetailsTab() {
       if (selectedAgent && !tempAgentId) {
         // Update existing agent
         savedAgent = await agentService.updateAgent(selectedAgent.id, formData);
-        showNotification('Success', 'Agent updated successfully', 'success');
+        showToast('Agent updated successfully', 'success');
       } else {
         // Create new agent
         savedAgent = await agentService.createAgent(formData);
-        showNotification('Success', 'Agent created successfully', 'success');
+        showToast('Agent created successfully', 'success');
       }
       
       // Clear temp agent ID if exists
@@ -316,7 +328,7 @@ function AgentDetailsTab() {
         }
       }
       
-      showNotification('Error', errorMessage, 'error');
+      showToast(errorMessage, 'error');
     } finally {
       setIsLoading(false);
     }
@@ -344,8 +356,7 @@ function AgentDetailsTab() {
           (selectedAgent.topics && selectedAgent.topics.length > 0)) {
         
         // Show warning notification
-        showNotification(
-          'Warning',
+        showToast(
           `This agent has ${selectedAgent.plugins.length} plugins and ${selectedAgent.topics.length} topics attached. These will be removed when deleting the agent.`,
           'warning'
         );
@@ -371,7 +382,7 @@ function AgentDetailsTab() {
       await fetchAgents();
       
       // Show success notification
-      showNotification('Success', 'Agent deleted successfully', 'success');
+      showToast('Agent deleted successfully', 'success');
       
     } catch (error) {
       console.error('Error deleting agent:', error);
@@ -387,7 +398,7 @@ function AgentDetailsTab() {
         }
       }
       
-      showNotification('Error', errorMessage, 'error');
+      showToast(errorMessage, 'error');
     } finally {
       setIsLoading(false);
       closeConfirmation();
@@ -420,14 +431,14 @@ function AgentDetailsTab() {
         />
       </div>
 
-      {/* Notification Modal */}
-      <NotificationModal
-        isOpen={notification.isOpen}
-        onClose={closeNotification}
-        title={notification.title}
-        message={notification.message}
-        type={notification.type}
-      />
+      {/* Toast Notification */}
+      {toast.isVisible && (
+        <Toast
+          message={toast.message}
+          type={toast.type}
+          onClose={closeToast}
+        />
+      )}
 
       {/* Confirmation Modal */}
       <ConfirmationModal

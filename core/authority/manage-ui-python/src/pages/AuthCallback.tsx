@@ -18,7 +18,7 @@ const AuthCallback = () => {
         await userManager.signinRedirectCallback();
         window.location.href = '/';
       } catch (error) {
-        console.error('Signin error:', error);
+        // console.error('Signin error:', error);
         navigate('/login', { replace: true });
       }
     };

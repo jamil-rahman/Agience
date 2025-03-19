@@ -26,19 +26,27 @@ const AgentList: React.FC<AgentListProps> = ({
     <Card
       title="My Agents"
       actions={
-        <button
-          onClick={onCreateAgent}
-          className={`px-3 py-1.5 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors flex items-center space-x-1 text-sm font-medium shadow-sm ${
-            hasTempAgent ? 'opacity-50 cursor-not-allowed' : ''
-          }`}
-          disabled={hasTempAgent}
-          title={hasTempAgent ? "Save or cancel the current new agent first" : "Create a new agent"}
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-          </svg>
-          <span>New Agent</span>
-        </button>
+        <div className="flex space-x-2">
+          {hasTempAgent ? (
+            <button
+              onClick={() => onSelectAgent('')}
+              className="px-4 py-3 hover:bg-red-500 bg-red-600 text-white rounded-md transition-colors text-sm md:text-md font-medium flex items-center space-x-1"
+            >
+              <span>Cancel</span>
+            </button>
+          ) : (
+            <button
+              onClick={onCreateAgent}
+              className="px-3 py-1.5 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors flex items-center space-x-1 text-sm font-medium shadow-sm"
+              title="Create a new agent"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+              </svg>
+              <span>New Agent</span>
+            </button>
+          )}
+        </div>
       }
     >
       <div className="space-y-3 max-h-[calc(100vh-250px)] overflow-y-auto pr-1">
@@ -52,15 +60,25 @@ const AgentList: React.FC<AgentListProps> = ({
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714a2.25 2.25 0 001.5 2.25m0 0v5.8a2.25 2.25 0 01-2.25 2.25H6.75a2.25 2.25 0 01-2.25-2.25V8.25a2.25 2.25 0 011.5-2.25m7.5 0a15.645 15.645 0 013-1.3m-3 1.3a15.65 15.65 0 00-3 1.3m0 0h3" />
             </svg>
             <p className="mt-2 text-gray-600 dark:text-gray-400">No agents found</p>
-            <button
-              onClick={onCreateAgent}
-              className={`mt-3 px-4 py-2 bg-indigo-600 text-white text-sm rounded-md hover:bg-indigo-700 transition-colors ${
-                hasTempAgent ? 'opacity-50 cursor-not-allowed' : ''
-              }`}
-              disabled={hasTempAgent}
-            >
-              Create your first agent
-            </button>
+            <div className="mt-3 flex space-x-3 justify-center">
+              <button
+                onClick={onCreateAgent}
+                className={`px-4 py-2 bg-indigo-600 text-white text-sm rounded-md hover:bg-indigo-700 transition-colors ${
+                  hasTempAgent ? 'opacity-50 cursor-not-allowed' : ''
+                }`}
+                disabled={hasTempAgent}
+              >
+                Create your first agent
+              </button>
+              {hasTempAgent && (
+                <button
+                  onClick={() => onSelectAgent('')}
+                  className="px-4 py-2 bg-gray-600 text-white text-sm rounded-md hover:bg-gray-700 transition-colors"
+                >
+                  Cancel
+                </button>
+              )}
+            </div>
           </div>
         ) : (
           agents.map(agent => (
