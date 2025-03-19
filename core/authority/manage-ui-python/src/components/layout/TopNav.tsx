@@ -16,6 +16,7 @@ export const TopNav: React.FC<TopNavProps> = ({ onToggleSidebar }) => {
   const fullName = user?.profile?.name || 'User';
   const initials = getInitials(fullName);
   const navigate = useNavigate(); 
+  var chagne = 'change'
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-gray-50 dark:bg-gray-800 shadow z-10">
